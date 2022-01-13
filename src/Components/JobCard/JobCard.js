@@ -3,9 +3,9 @@ import {View, Text, TouchableWithoutFeedback} from 'react-native';
 
 import Styles from './JobCard.style';
 
-const JobCard = ({job}) => {
+const JobCard = ({job, onSelect}) => {
   return (
-    <TouchableWithoutFeedback>
+    <TouchableWithoutFeedback onPress={onSelect}>
       <View style={Styles.container}>
         <Text style={Styles.title}>{job.name}</Text>
         <Text style={Styles.sprinklr}>Sprinklr</Text>

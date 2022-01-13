@@ -11,7 +11,7 @@ import useFetch from 'hooks/useFetch';
 
 import Styles from './Jobs.style';
 
-const Jobs = () => {
+const Jobs = ({navigation}) => {
   const [page, setPage] = useState(1);
 
   const {data, loading, error} = useFetch(
@@ -37,11 +37,15 @@ const Jobs = () => {
     }
   };
 
+  const handleJob = id => {
+    navigation.navigate('JobDetailPage', {id});
+  };
+
   if (error) {
     return <Error />;
   }
   const renderJobs = ({item}) => {
-    return <JobCard job={item} />;
+    return <JobCard job={item} onSelect={() => handleJob(item.id)} />;
   };
 
   return (
