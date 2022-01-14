@@ -9,8 +9,12 @@ export default StyleSheet.create({
     padding: 5,
   },
   innerContainer: {
+    borderWidth: 0.2,
     backgroundColor: '#fff',
     padding: 5,
+  },
+  buttonContainer: {
+    flexDirection: 'row',
   },
   titleText: {
     color: '#37474f',

@@ -8,31 +8,7 @@ import Loading from 'components/Loading';
 import useFetch from 'hooks/useFetch';
 
 import Styles from './JobDetail.style';
-
-const JobDetail = ({route}) => {
-  const {id} = route.params;
-  const {data, loading, error} = useFetch(`${Config.JOBS_API_URL}/${id}`);
-
-  if (loading) {
-    return <Loading />;
-  }
-  if (error) {
-    return <Error />;
-  }
-
-  return (
-    <SafeAreaView style={Styles.container}>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <Header data={data} />
-        <View style={Styles.innerContainer}>
-          <HTMLView value={data.contents} stylesheet={Styles} />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
-
-export default JobDetail;
+import PageButton from 'components/Buttons/PageButton';
 
 const Header = ({data}) => {
   return (
@@ -57,6 +33,41 @@ const Header = ({data}) => {
   );
 };
 
+const Button = () => {
+  return (
+    <View style={Styles.buttonContainer}>
+      <PageButton icon="logout" text="Logout" />
+      <PageButton icon="heart" text="Favorite Job" />
+    </View>
+  );
+};
+
 const TextColor = ({text}) => {
   return <Text style={Styles.textColor}>{text}</Text>;
 };
+
+const JobDetail = ({route}) => {
+  const {id} = route.params;
+  const {data, loading, error} = useFetch(`${Config.JOBS_API_URL}/${id}`);
+
+  if (loading) {
+    return <Loading />;
+  }
+  if (error) {
+    return <Error />;
+  }
+
+  return (
+    <SafeAreaView style={Styles.container}>
+      <Header data={data} />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={Styles.innerContainer}>
+          <HTMLView value={data.contents} stylesheet={Styles} />
+        </View>
+      </ScrollView>
+      <Button />
+    </SafeAreaView>
+  );
+};
+
+export default JobDetail;

@@ -7,7 +7,12 @@ export default StyleSheet.create({
     borderRadius: 10,
     backgroundColor: '#ef534f',
     flex: 1,
+    flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
+  },
+  icon: {
+    paddingRight: 5,
   },
   text: {
     justifyContent: 'center',
