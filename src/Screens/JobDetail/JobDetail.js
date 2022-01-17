@@ -36,7 +36,7 @@ const Header = ({data}) => {
 const Button = () => {
   return (
     <View style={Styles.buttonContainer}>
-      <PageButton icon="logout" text="Logout" />
+      <PageButton icon="login" text="Submit" />
       <PageButton icon="heart" text="Favorite Job" />
     </View>
   );
