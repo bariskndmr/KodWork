@@ -3,12 +3,15 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 
 import JobsStackNavigator from 'navigations/JobsStackNavigator';
+import FavProvider from './Context/FavProvider/FavProvider';
 
 const Router = () => {
   return (
-    <NavigationContainer>
-      <JobsStackNavigator />
-    </NavigationContainer>
+    <FavProvider>
+      <NavigationContainer>
+        <JobsStackNavigator />
+      </NavigationContainer>
+    </FavProvider>
   );
 };
 
