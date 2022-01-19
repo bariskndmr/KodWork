@@ -12,7 +12,11 @@ const FavJob = ({navigation}) => {
   };
   const renderFav = ({item}) => {
     return (
-      <JobCard job={item} onSelect={() => handleJob(item.id, item.levels)} />
+      <JobCard
+        isButton
+        job={item}
+        onSelect={() => handleJob(item.id, item.levels)}
+      />
     );
   };
   return (
@@ -20,7 +24,7 @@ const FavJob = ({navigation}) => {
       {favorites.length > 0 ? (
         <FlatList data={favorites} renderItem={renderFav} />
       ) : (
-        Alert.alert('Boş', 'Favori listesi boş!')
+        Alert.alert('Empty', 'The list is empty!')
       )}
     </SafeAreaView>
   );

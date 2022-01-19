@@ -15,6 +15,12 @@ export default (state, action) => {
         newList = [...state.favList, job];
         return {...state, favList: newList};
       }
+    case 'REMOVE_FAVORITE':
+      const {id} = action.payload;
+      const list = state.favList.filter(item => item.id !== id);
+
+      return {...state, favList: list};
+
     default:
       return state;
   }
