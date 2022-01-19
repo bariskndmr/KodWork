@@ -10,26 +10,22 @@ import FavJob from 'screens/FavJob';
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
+const screenOptions = {
+  headerTitleStyle: {
+    color: '#FF5C58',
+  },
+  drawerActiveTintColor: '#FF5C58',
+  headerTintColor: '#FF5C58',
+};
+
 const FavDrawerNavigator = () => {
   return (
     <Drawer.Navigator>
-      <Drawer.Screen
-        name="JobsPage"
-        component={Jobs}
-        options={{
-          headerTitleStyle: {
-            color: '#FF5C58',
-          },
-        }}
-      />
+      <Drawer.Screen name="JobsPage" component={Jobs} options={screenOptions} />
       <Drawer.Screen
         name="FavoritedJobsPage"
         component={FavJob}
-        options={{
-          headerTitleStyle: {
-            color: '#FF5C58',
-          },
-        }}
+        options={screenOptions}
       />
     </Drawer.Navigator>
   );
