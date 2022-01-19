@@ -4,7 +4,7 @@ Tarifka app for React-Native course on [Patika](https://app.patika.dev)
 
 # Here images of Application
 
-<img src="./src/Assets/ScreenShots/jobspage.png" width="200px" /> <img src="./src/Assets/ScreenShots/detailspage.png" width="200px" /> <img src="./src/Assets/ScreenShots/favpage.png" width="200px" /> <img src="./src/Assets/ScreenShots/drawermenu.png" width="200px" />
+<img src="./src/Assets/ScreenShots/jobspage.png" width="200px" /> <img src="./src/Assets/ScreenShots/detailpage.png" width="200px" /> <img src="./src/Assets/ScreenShots/favpage.png" width="200px" /> <img src="./src/Assets/ScreenShots/drawermenu.png" width="200px" />
 
 # Tools & Resources
 
