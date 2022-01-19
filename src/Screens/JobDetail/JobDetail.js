@@ -2,13 +2,14 @@ import React from 'react';
 import {SafeAreaView, ScrollView, Text, View} from 'react-native';
 import Config from 'react-native-config';
 import HTMLView from 'react-native-htmlview';
+import {useDispatch} from 'react-redux';
 
 import Error from 'components/Error';
 import Loading from 'components/Loading';
+import PageButton from 'components/PageButton';
 import useFetch from 'hooks/useFetch';
 
 import Styles from './JobDetail.style';
-import PageButton from 'components/Buttons/PageButton';
 
 const Header = ({data}) => {
   return (
@@ -33,11 +34,11 @@ const Header = ({data}) => {
   );
 };
 
-const Button = () => {
+const Button = ({onPress}) => {
   return (
     <View style={Styles.buttonContainer}>
       <PageButton icon="login" text="Submit" />
-      <PageButton icon="heart" text="Favorite Job" />
+      <PageButton onPress={onPress} icon="heart" text="Favorite Job" />
     </View>
   );
 };
@@ -49,6 +50,11 @@ const TextColor = ({text}) => {
 const JobDetail = ({route}) => {
   const {id} = route.params;
   const {data, loading, error} = useFetch(`${Config.JOBS_API_URL}/${id}`);
+  const dispatch = useDispatch();
+
+  const handleFav = job => {
+    dispatch({type: 'ADD_FAVORITE', payload: {job}});
+  };
 
   if (loading) {
     return <Loading />;
@@ -65,7 +71,7 @@ const JobDetail = ({route}) => {
           <HTMLView value={data.contents} stylesheet={Styles} />
         </View>
       </ScrollView>
-      <Button />
+      <Button onPress={() => handleFav(data)} />
     </SafeAreaView>
   );
 };

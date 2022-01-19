@@ -6,7 +6,7 @@ import Config from 'react-native-config';
 import Error from 'components/Error';
 import JobCard from 'components/JobCard';
 import Loading from 'components/Loading';
-import PageButton from 'components/Buttons/PageButton';
+import PageButton from 'components/PageButton';
 import useFetch from 'hooks/useFetch';
 
 import Styles from './Jobs.style';
